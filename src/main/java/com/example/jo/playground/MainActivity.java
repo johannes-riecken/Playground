@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,12 +26,13 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
         final ArrayList<String> defs = new ArrayList<>();
         defs.add("hello");
         defs.add("world");
         final ArrayAdapter<String> defsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, defs);
-        ListView codeLearnLessons = (ListView)findViewById(R.id.definitions);
+        ListView codeLearnLessons = new ListView(this);
+//        codeLearnLessons = (ListView)findViewById(R.id.definitions);
         codeLearnLessons.setAdapter(defsAdapter);
 
         List<String> lines = new ArrayList<>();
@@ -57,7 +59,8 @@ public class MainActivity extends Activity {
         // simp trad jyutping examples explanation
 
 
-        EditText et = (EditText)findViewById(R.id.edit_message);
+        EditText et = new EditText(this);
+//        et = (EditText)findViewById(R.id.edit_message);
         et.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -87,7 +90,7 @@ public class MainActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -99,9 +102,9 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
